@@ -26,7 +26,6 @@ public class TaskService {
         }
 
         TaskEntity createTask = new TaskEntity();
-        createTask.setDone(task.getDone());
         createTask.setName(task.getName());
         createTask.setDueDate(task.getDueDate());
         return taskRepository.save(createTask);
@@ -43,14 +42,11 @@ public class TaskService {
         if(findTask != null) {
             if(task.name != null) findTask.setName(task.getName());
             if(task.dueDate != null) findTask.setDueDate(task.getDueDate());
-            if(task.done != null) findTask.setDone(task.getDone());
-            return taskRepository.save(findTask);
         }
 
         TaskEntity newTask = new TaskEntity();
         newTask.setName(task.getName());
         newTask.setDueDate(task.getDueDate());
-        newTask.setDone(task.getDone());
 
         return taskRepository.save(newTask);
     }

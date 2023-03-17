@@ -22,7 +22,7 @@ public class TaskEntity extends BaseEntity {
     @Column(name = "due_date", nullable = false)
     Date dueDate;
 
-    @Column(name = "done", nullable = false)
+    @Column(name = "done", nullable = false, columnDefinition = "boolean default false")
     boolean done;
 
     @ToString.Exclude

@@ -17,6 +17,4 @@ public class TaskDto {
     @Nullable
     Date dueDate;
 
-    @Nullable
-    Boolean done;
 }
