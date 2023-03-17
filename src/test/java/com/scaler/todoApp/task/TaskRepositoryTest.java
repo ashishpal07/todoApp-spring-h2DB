@@ -6,6 +6,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @DataJpaTest(showSql = true)
 public class TaskRepositoryTest {
 
@@ -18,6 +20,11 @@ public class TaskRepositoryTest {
         task.setName("test task");
         task.setDueDate(new Date());
         taskRepository.save(task);
+
+        TaskEntity savedTask = taskRepository.findAll().get(0);
+
+        assertEquals("test task", savedTask.name);
+        System.out.println(savedTask);
     }
 
 }

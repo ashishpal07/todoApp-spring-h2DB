@@ -3,10 +3,7 @@ package com.scaler.todoApp.task;
 import com.scaler.todoApp.common.BaseEntity;
 import com.scaler.todoApp.notes.NoteEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TaskEntity extends BaseEntity {
 
     @Column(name = "name", nullable = false)
@@ -27,6 +25,7 @@ public class TaskEntity extends BaseEntity {
     @Column(name = "done", nullable = false)
     boolean done;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     List<NoteEntity> notes;
 
